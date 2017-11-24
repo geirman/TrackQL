@@ -1,9 +1,35 @@
 import gql from 'graphql-tag'
 
 export const ALL_COLLABORATIONS_QUERY = gql`
-  query AllCollaborationsQuery {
+query AllCollaborationsQuery {
     allCollaborations {
       id
+      name
+      slug
+      tempo
+      tracks {
+        id
+        clips {
+          id
+          file {
+            id
+          }
+          level
+          name
+          trimEnd
+          trimStart
+          comments {
+            id
+            comment
+          }
+          user {
+            id
+          }
+        }
+      }
+      user {
+        id
+      }
     }
   }
 `
